@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PCplus | {{page.title}}{% endblock %}
+
+{% block body %}
+<div  class="main_content">
+    <div  class="section">
+        <div  class="container">
+           {{ page.content | raw  }}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

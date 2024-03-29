@@ -1,0 +1,32 @@
+[
+    {
+        "civility": "Mr",
+        "fullName": "John Doe",
+        "email": "johndoe@example.com",
+        "password": "123456"
+    },
+    {
+        "civility": "Mme",
+        "fullName": "Clara Smith",
+        "email": "clara@example.com",
+        "password": "123456"
+    },
+    {
+        "civility": "Mr",
+        "fullName": "Jack Chiu",
+        "email": "jack@example.com",
+        "password": "123456"
+    },
+    {
+        "civility": "Mme",
+        "fullName": "Laura Bill",
+        "email": "laura@example.com",
+        "password": "123456"
+    },
+    {
+        "civility": "Mr",
+        "fullName": "Wilfried Mark",
+        "email": "wilfried@example.com",
+        "password": "123456"
+    }
+]

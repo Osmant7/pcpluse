@@ -1,0 +1,30 @@
+1 - User 
+     - civility
+     - email
+     - full_name
+     - password
+
+
+2 - Product
+     - name 
+     - slug
+     - description
+     - more_description
+     - additional_infos
+     - stock
+     - solde_price
+     - regular_price
+     - categories
+     - relatedProducts
+     - reviews
+     - brand ( marque )
+     - imageUrls
+
+3 - Category
+
+     - name
+     - slug
+     - description
+     - products 
+     - imageUrl
+     - isMega
