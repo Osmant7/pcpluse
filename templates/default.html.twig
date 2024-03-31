@@ -29,14 +29,12 @@
         {% endblock %}
     </head>
     <body>
-        {% include("header/index.html.twig")  %}
+
         {% block body %}{% endblock %}
 
         <div class="notification">
         
         </div>
-        
-        {% include("footer/index.html.twig")  %}
 
         <script src="/assets/js/jquery-3.6.0.min.js"></script>
         <script src="/assets/js/popper.min.js"></script>
@@ -52,6 +50,6 @@
         <script src="/assets/js/slick.min.js"></script>
         <script src="/assets/js/jquery.elevatezoom.js"></script>
         <script src="/assets/js/scripts.js"></script>
-        <script type="module" src="/assets/js/main.js"></script>
+        <script src="/assets/js/main.js"></script>
     </body>
 </html>

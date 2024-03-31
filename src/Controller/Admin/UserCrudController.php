@@ -15,6 +15,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\KeyValueStore;
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -52,6 +53,7 @@ class UserCrudController extends AbstractCrudController
             ]),
             TextField::new('full_name'),
             EmailField::new('email'),
+            AssociationField::new('addresses'),
             TextField::new('password')
             ->setFormType(RepeatedType::class)
             ->setFormTypeOptions([
