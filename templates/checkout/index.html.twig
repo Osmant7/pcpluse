@@ -7,95 +7,71 @@
     <div  class="section">
         <div  class="container">
             <div  class="row">
-                {# <div  class="col-lg-6">
-                    <div  class="toggle_info"><span ><i
-                                 class="fas fa-user"></i>Returning customer? <a
-                                 href="#loginform" data-bs-toggle="collapse"
-                                aria-expanded="false" class="collapsed">Click here to login</a></span></div>
-                    <div  id="loginform" class="panel-collapse collapse login_form">
-                        <div  class="panel-body">
-                            <p >If you have shopped with us before, please enter your
-                                details below. If you are a new customer, please proceed to the Billing &amp;
-                                Shipping section.</p>
-                            <form  novalidate="" method="post"
-                                class="ng-untouched ng-pristine ng-valid">
-                                <div  class="form-group mb-3"><input
-                                         type="text" required="" name="email"
-                                        placeholder="Username Or Email" class="form-control"></div>
-                                <div  class="form-group mb-3"><input
-                                         required="" type="password" name="password"
-                                        placeholder="Password" class="form-control"></div>
-                                <div  class="login_footer form-group mb-3">
-                                    <div  class="chek-form">
-                                        <div  class="custome-checkbox"><input
-                                                 type="checkbox" name="checkbox" id="remember"
-                                                value="" class="form-check-input"><label 
-                                                for="remember" class="form-check-label"><span
-                                                    >Remember
-                                                    me</span></label></div>
-                                    </div>
-                                </div>
-                                <div  class="form-group mb-3"><button
-                                         type="submit" name="login"
-                                        class="btn btn-fill-out btn-block">Log in</button></div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div  class="col-lg-6">
-                    <div  class="toggle_info"><span ><i
-                                 class="fas fa-tag"></i>Have a coupon? <a
-                                 href="#coupon" data-bs-toggle="collapse"
-                                aria-expanded="false" class="collapsed">Click here to enter your code</a></span>
-                    </div>
-                    <div  id="coupon" class="panel-collapse collapse coupon_form">
-                        <div  class="panel-body">
-                            <p >If you have a coupon code, please apply it below.</p>
-                            <div  class="coupon field_form input-group"><input
-                                     type="text" value="" placeholder="Enter Coupon Code.."
-                                    class="form-control">
-                                <div  class="input-group-append"><button
-                                         type="submit" class="btn btn-fill-out btn-sm">Apply
-                                        Coupon</button></div>
-                            </div>
-                        </div>
-                    </div>
-                </div> #}
+ 
             </div>
             <div  class="row">
-                <div  class="col-12">
-                    <div  class="medium_divider"></div>
-                    <div  class="divider center_icon"><i 
-                            class="linearicons-credit-card"></i></div>
-                    <div  class="medium_divider"></div>
-                </div>
+
             </div>
             <div  class="row">
                 <div  class="col-md-6">
                     <div  class="heading_s1">
                         <h4>Adresse de facturation</h4>
+                        <select name="billing_address" class="form-control">
+                            <option value=""> Choix de l'adresse de facturation</option>
+                            {% for address in addresses %}
+                                <option>
+                                    {{ address.clientName }}
+                                    ( {{ address.street }}
+                                    {{ address.codePostal }}
+                                    {{ address.city }}
+                                    {{ address.state }} )
+                                </option>
+                            {% endfor %}
+                        </select>
                     </div>
                     <div  class="heading_s1">
                         <h4>Adresse de livraison</h4>
+                        <select name="shipping_address" class="form-control">
+                        <option value=""> Choix de l'adresse de livraison</option>
+                            {% for address in addresses %}
+                                <option>
+                                    {{ address.clientName }}
+                                    ( {{ address.street }}
+                                    {{ address.codePostal }}
+                                    {{ address.city }}
+                                    {{ address.state }} )
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div  class="heading_s1">
+                        <h4>Commentaire</h4>
+                        <textarea class="form-control" name="comments" id="" cols="30" rows="10"></textarea>
                     </div>
                 </div>
                 <div  class="col-md-6">
                     <div  class="order_review">
                         <div  class="heading_s1">
-                            <h4 >Your Orders</h4>
+                            <h4 >Vos commandes</h4>
                         </div>
                         <div  class="table-responsive order_table">
                             <table  class="table">
                                 <thead >
                                     <tr >
-                                        <th >Product</th>
+                                        <th >Produit</th>
                                         <th >Total</th>
                                     </tr>
                                 </thead>
                                 <tbody >
                                 {% for item in cart.items %}
                                     <tr>
-                                        <td >{{item.product.name}}
+
+                                        <td>
+                                            <img src="/assets/images/products/{{item.product.imageUrls[0]}}"
+                                            width="30" height="30" alt="">
+                                        
+                                            {{item.product.name}}
                                             <span class="product-qty">{{item.quantity}}</span>
                                         </td>
                                         <td>
@@ -105,14 +81,10 @@
                                 {% endfor %}
                                 </tbody>
                                 <tfoot >
-                                    <tr >
+                                    {# <tr >
                                         <th >SubTotal</th>
                                         <td  class="product-subtotal">{{ (cart.sub_total/100) |format_currency('EUR') }}</td>
-                                    </tr>
-                                    <tr >
-                                        <th >Shipping</th>
-                                        <td >Free Shipping</td>
-                                    </tr>
+                                    </tr> #}
                                     <tr >
                                         <th >Total</th>
                                         <td  class="product-subtotal">{{ (cart.sub_total/100) |format_currency('EUR') }}</td>
@@ -123,14 +95,50 @@
                         <div  class="payment_method">
                             
                         </div>
-                        <a  href="#" class="btn btn-fill-out btn-block">
-                            Paiement
-                            {{ (cart.sub_total/100) |format_currency('EUR') }}
-                        </a>
+                        
+                        <div class="payment-buttons d-none">
+                            <a  href="#" class="btn btn-fill-out btn-block">
+                                Paiement
+                                {{ (cart.sub_total/100) |format_currency('EUR') }}
+                            </a> 
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        let billing_address = ""
+        let shipping_address = ""
+        let comment = ""
+        let displayPayBtn = false
+
+        const billing_address_select = document.querySelector('select[name="billing_address"]')
+        const shipping_address_select = document.querySelector('select[name="shipping_address"]')
+        const comments_textarea = document.querySelector('textarea')
+        const payBtn = document.querySelector('.payment-buttons')
+
+        const updateButton = () => {
+            displayPayBtn = (!!billing_address) && (!!shipping_address)
+            //console.log({displayPayBtn}, comment)
+            displayPayBtn ? payBtn.classList.remove("d-none") : payBtn.classList.add("d-none")
+        }
+
+        billing_address_select.onchange = (event) => {
+            billing_address = event.target.value
+            updateButton()
+        }
+
+        shipping_address_select.onchange = (event) => {
+            shipping_address = event.target.value
+            updateButton()
+        }
+        comments_textarea.onchange = (event) => {
+            comment = event.target.value
+            updateButton()
+        }
+
+    </script>
 </div>
 {% endblock %}

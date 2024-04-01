@@ -4,10 +4,12 @@ namespace App\Controller\Admin;
 
 use App\Entity\Page;
 use App\Entity\User;
+use App\Entity\Order;
 use App\Entity\Address;
 use App\Entity\Product;
 use App\Entity\Category;
 use App\Entity\Settings;
+use App\Entity\PaymentMethod;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -52,6 +54,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Categories', 'fas fa-tag', Category::class);
         yield MenuItem::linkToCrud('Users', 'fas fa-users', User::class);
         yield MenuItem::linkToCrud('Addresses', 'fas fa-address-card', Address::class);
+        yield MenuItem::linkToCrud('Order', 'fas fa-shopping-cart', Order::class);
+        yield MenuItem::linkToCrud('Payment methods', 'fas fa-landmark', PaymentMethod::class);
         yield MenuItem::linkToCrud('Pages', 'fas fa-file', Page::class);
         yield MenuItem::linkToCrud('Settings', 'fas fa-gear', Settings::class);
     }

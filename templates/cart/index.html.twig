@@ -14,11 +14,11 @@
                             <thead>
                                 <tr>
                                     <th class="product-thumbnail">&nbsp;</th>
-                                    <th class="product-name">Product</th>
-                                    <th class="product-price">Price</th>
-                                    <th class="product-quantity">Quantity</th>
+                                    <th class="product-name">Produit</th>
+                                    <th class="product-price">Prix</th>
+                                    <th class="product-quantity">Quantité</th>
                                     <th class="product-subtotal">Total</th>
-                                    <th class="product-remove">Remove</th>
+                                    <th class="product-remove">Supprimer</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -70,19 +70,15 @@
                 <div class="col-md-6">
                     <div class="border p-3 p-md-4">
                         <div class="heading_s1 mb-3">
-                            <h6>Cart Totals</h6>
+                            <h6>Total du panier</h6>
                         </div>
                         <div class="table-responsive">
                             <table class="table">
                                 <tbody>
-                                    <tr>
-                                        <td class="cart_total_label">Cart Subtotal</td>
+                                    {# <tr>
+                                        <td class="cart_total_label">Total du panier</td>
                                         <td class="cart_total_amount">{{ (cart.sub_total/100)   |format_currency('EUR') }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="cart_total_label">Shipping</td>
-                                        <td class="cart_total_amount">Free Shipping</td>
-                                    </tr>
+                                    </tr> #}
                                     <tr>
                                         <td class="cart_total_label">Total</td>
                                         <td class="cart_total_amount"><strong>{{ (cart.sub_total/100)   |format_currency('EUR') }}</strong></td>
@@ -90,7 +86,7 @@
                                 </tbody>
                             </table>
                         </div><a routerlink="/checkout" class="btn btn-fill-out" ng-reflect-router-link="/checkout"
-                            href="/checkout">Proceed To CheckOut</a>
+                            href="/checkout">Paiement</a>
                     </div>
                 </div>
             </div>
