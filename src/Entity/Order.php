@@ -21,7 +21,10 @@ class Order
     private ?string $client_name = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $delivery_address = null;
+    private ?string $shipping_address = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $billing_address = null;
 
     #[ORM\Column]
     private ?int $quantity = null;
@@ -36,7 +39,7 @@ class Order
     private ?int $order_cost_ttc = null;
 
     #[ORM\Column(nullable: true)]
-    private ?bool $isPayed = null;
+    private ?bool $isPayed = false;
 
     #[ORM\Column(length: 255)]
     private ?string $status = null;
@@ -59,9 +62,13 @@ class Order
     #[ORM\OneToMany(targetEntity: OrderDetails::class, mappedBy: 'myOrder')]
     private Collection $orderDetails;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $stripeClientSecret = null;
+
     public function __construct()
     {
         $this->orderDetails = new ArrayCollection();
+        $this->setCreatedAt(new \DateTimeImmutable());
     }
 
     public function getId(): ?int
@@ -77,18 +84,6 @@ class Order
     public function setClientName(string $client_name): static
     {
         $this->client_name = $client_name;
-
-        return $this;
-    }
-
-    public function getDeliveryAddress(): ?string
-    {
-        return $this->delivery_address;
-    }
-
-    public function setDeliveryAddress(?string $delivery_address): static
-    {
-        $this->delivery_address = $delivery_address;
 
         return $this;
     }
@@ -251,6 +246,58 @@ class Order
                 $orderDetail->setMyOrder(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * Get the value of shipping_address
+     */ 
+    public function getShippingAddress()
+    {
+        return $this->shipping_address;
+    }
+
+    /**
+     * Set the value of shipping_address
+     *
+     * @return  self
+     */ 
+    public function setShippingAddress($shipping_address)
+    {
+        $this->shipping_address = $shipping_address;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of billing_address
+     */ 
+    public function getBillingAddress()
+    {
+        return $this->billing_address;
+    }
+
+    /**
+     * Set the value of billing_address
+     *
+     * @return  self
+     */ 
+    public function setBillingAddress($billing_address)
+    {
+        $this->billing_address = $billing_address;
+
+        return $this;
+    }
+
+    public function getStripeClientSecret(): ?string
+    {
+        return $this->stripeClientSecret;
+    }
+
+    public function setStripeClientSecret(?string $stripeClientSecret): static
+    {
+        $this->stripeClientSecret = $stripeClientSecret;
 
         return $this;
     }
