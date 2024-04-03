@@ -6,12 +6,14 @@ use App\Entity\Product;
 use App\Entity\Category;
 use Doctrine\ORM\Events;
 use Doctrine\ORM\Event\PostRemoveEventArgs;
+use Doctrine\ORM\Event\PostUpdateEventArgs;
 use Symfony\Component\HttpKernel\KernelInterface;
-use Doctrine\Bundle\DoctrineBundle\EventSubscriber\EventSubscriberInterface;
+use Doctrine\Bundle\DoctrineBundle\Attribute\AsDoctrineListener;
 
 
-
-class DatabaseActivitySubscriber implements EventSubscriberInterface
+#[AsDoctrineListener(event: Events::postRemove)]
+#[AsDoctrineListener(event: Events::postUpdate)]
+class DatabaseActivitySubscriber
 {
     // ici un écouteur d'évenement ( qu'on indique dans services.yaml )
     // si il ya une suppression systematiquement on fera appel
@@ -38,6 +40,10 @@ class DatabaseActivitySubscriber implements EventSubscriberInterface
     public function postRemove(PostRemoveEventArgs $args): void
     {
         $this->logActivity('remove', $args->getObject());
+    }
+    public function postUpdate(PostUpdateEventArgs $args): void 
+    {
+        $this->logActivity('update', $args->getObject());
     }
 
     // si l'on l'entité est une instance de product et c'est une action de suppression alors on applique la condition if
