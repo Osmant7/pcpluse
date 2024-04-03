@@ -1,6 +1,6 @@
 {% extends 'default.html.twig' %}
 
-{% block title %}PCplus | Checkout{% endblock %}
+{% block title %}PCpluse | Paiement{% endblock %}
 
 {% block stylesheets %}
 <link rel="stylesheet" href="/assets/css/stripe.css">
@@ -208,7 +208,7 @@ data-orderid="{{orderId}}"
         // This is your test publishable API key.
         const stripe = Stripe(public_key);
 
-// The items the customer wants to buy
+        // The items the customer wants to buy
         const items = cart.items;
 
         let elements;
