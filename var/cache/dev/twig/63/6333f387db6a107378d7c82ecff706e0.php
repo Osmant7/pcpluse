@@ -65,7 +65,7 @@ class __TwigTemplate_22fdfdb5c4a0e2d4d1abd7c8c8c88c55 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "PCplus | Produit ";
+        echo "PCpluse | Produit ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -183,18 +183,16 @@ class __TwigTemplate_22fdfdb5c4a0e2d4d1abd7c8c8c88c55 extends Template
                                     <i class=\"icon-basket-loaded\"></i>
                                     Ajouter au panier
                                 </a>
-                                <button type=\"button\" class=\"btn btn-fill-out\">
-                                    <i class=\"icon-basket-loaded\"></i>
-                                    Acheter cet article
-                                </button>
-                            </div>
+                                ";
+        // line 69
+        echo "                            </div>
                             ";
         // line 72
         echo "                        </div>
                         <hr>
                         <ul class=\"product-meta\">
                             <li>SKU: <a href=\"#\">BE45VGRT</a></li>
-                            <li>Categories: <a href=\"#\">";
+                            <li>Categorie: <a href=\"#\">";
         // line 76
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["product"]) || array_key_exists("product", $context) ? $context["product"] : (function () { throw new RuntimeError('Variable "product" does not exist.', 76, $this->source); })()), "categories", [], "any", false, false, false, 76), 0, [], "array", false, false, false, 76), "html", null, true);
         echo " </a></li>
@@ -278,14 +276,14 @@ class __TwigTemplate_22fdfdb5c4a0e2d4d1abd7c8c8c88c55 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  239 => 119,  232 => 114,  226 => 110,  206 => 89,  203 => 78,  199 => 76,  193 => 72,  181 => 61,  165 => 48,  153 => 39,  149 => 38,  145 => 37,  140 => 35,  129 => 26,  117 => 22,  114 => 21,  110 => 20,  102 => 15,  98 => 14,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  237 => 119,  230 => 114,  224 => 110,  204 => 89,  201 => 78,  197 => 76,  191 => 72,  188 => 69,  181 => 61,  165 => 48,  153 => 39,  149 => 38,  145 => 37,  140 => 35,  129 => 26,  117 => 22,  114 => 21,  110 => 20,  102 => 15,  98 => 14,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}PCplus | Produit {% endblock %}
+{% block title %}PCpluse | Produit {% endblock %}
 
 {% block body %}
 
@@ -347,10 +345,10 @@ class __TwigTemplate_22fdfdb5c4a0e2d4d1abd7c8c8c88c55 extends Template
                                     <i class=\"icon-basket-loaded\"></i>
                                     Ajouter au panier
                                 </a>
-                                <button type=\"button\" class=\"btn btn-fill-out\">
+                                {# <button type=\"button\" class=\"btn btn-fill-out\">
                                     <i class=\"icon-basket-loaded\"></i>
                                     Acheter cet article
-                                </button>
+                                </button> #}
                             </div>
                             {# <div class=\"cart_btn\"><a href=\"#\" class=\"add_wishlist\"><i class=\"icon-heart\"></i></a>
                             </div> #}
@@ -358,7 +356,7 @@ class __TwigTemplate_22fdfdb5c4a0e2d4d1abd7c8c8c88c55 extends Template
                         <hr>
                         <ul class=\"product-meta\">
                             <li>SKU: <a href=\"#\">BE45VGRT</a></li>
-                            <li>Categories: <a href=\"#\">{{product.categories[0]}} </a></li>
+                            <li>Categorie: <a href=\"#\">{{product.categories[0]}} </a></li>
                             {# <li>Tags: <a href=\"#\" rel=\"tag\">Cloth</a>, <a href=\"#\" rel=\"tag\">printed</a></li> #}
                         </ul>
                         {# <div class=\"product_share\"><span>Share:</span>

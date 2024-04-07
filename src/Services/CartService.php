@@ -63,20 +63,10 @@ class CartService {
     {
         $this->updateCart([]);
     }
+
+    
     public function getCartDetails()
     {
-        // [
-        //     "items" => [
-        //             [
-        //                 'product' => [],
-        //                 'quantity' => 2,
-        //                 'taxe' => 20,
-        //                 'sub_total' => 199,
-        //             ]
-        //         ],
-        //          "cart_sub_total" => 199
-        //          'cart_count' => 0,
-        // ]
         $cart = $this->getCart();
         $result = [
             'items' => [],
@@ -84,7 +74,6 @@ class CartService {
             'cart_count' => 0,
             'quantity' => 0,
         ];
-
         $sub_total = 0;
         foreach ($cart as $productId => $quantity) {
             $product = $this->productRepo->find($productId);

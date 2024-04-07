@@ -16,6 +16,7 @@ class StripeService {
         $this->session = $requestStack->getSession();
     }
 
+
     public function getPublicKey(){
         $config = $this->paymentMethodRepo->findOneByName("Stripe");
 
@@ -24,6 +25,8 @@ class StripeService {
             return $config->getTestPublicApiKey();
         } else {
             // mode production
+            // return $config->getTestPublicApiKey();
+            // a décommenter la ligne 28 et commenter la ligne 29 pour pouvoir payer avec de reel carte en mode prod
             return $config->getProdPublicApiKey();
         }
     }
@@ -36,6 +39,8 @@ class StripeService {
             return $config->getTestPrivateApiKey();
         } else {
             // mode production
+            // return $config->getTestPrivateApiKey();
+            // a décommenter la ligne 42 et commenter la ligne 44 pour pouvoir payer avec de reel carte en mode prod
             return $config->getProdPrivateApiKey();
         }
     }

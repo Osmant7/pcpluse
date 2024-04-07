@@ -90,17 +90,9 @@ class __TwigTemplate_cc98abf51ba796bb25075583bfeb633f extends Template
                                                                     Ajouter au panier 
                                                                 </a>
                                                             </li>
-                                                            <li>
-                                                                <a href=\"shop-quick-view.html\" class=\"popup-ajax\">
-                                                                <i class=\"icon-magnifier-add\"></i></a>
-                                                            </li>
-                                                            <li>
-                                                                <a href=\"/wishlist/add/";
-        // line 33
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["product"]) || array_key_exists("product", $context) ? $context["product"] : (function () { throw new RuntimeError('Variable "product" does not exist.', 33, $this->source); })()), "id", [], "any", false, false, false, 33), "html", null, true);
-        echo "\" class=\"add-to-wishlist\"><i class=\"icon-heart\"></i></a>
-                                                            </li>
-                                                        </ul>
+                                                            ";
+        // line 35
+        echo "                                                        </ul>
                                             </div>
                                             <div  class=\"pr_desc\">
                                                 <p >Lorem ipsum dolor sit amet,
@@ -140,7 +132,7 @@ class __TwigTemplate_cc98abf51ba796bb25075583bfeb633f extends Template
      */
     public function getDebugInfo()
     {
-        return array (  100 => 33,  88 => 24,  75 => 14,  71 => 13,  67 => 12,  59 => 9,  51 => 4,  47 => 3,  43 => 1,);
+        return array (  95 => 35,  88 => 24,  75 => 14,  71 => 13,  67 => 12,  59 => 9,  51 => 4,  47 => 3,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -172,13 +164,13 @@ class __TwigTemplate_cc98abf51ba796bb25075583bfeb633f extends Template
                                                                     Ajouter au panier 
                                                                 </a>
                                                             </li>
-                                                            <li>
+                                                            {# <li>
                                                                 <a href=\"shop-quick-view.html\" class=\"popup-ajax\">
                                                                 <i class=\"icon-magnifier-add\"></i></a>
                                                             </li>
                                                             <li>
                                                                 <a href=\"/wishlist/add/{{ product.id }}\" class=\"add-to-wishlist\"><i class=\"icon-heart\"></i></a>
-                                                            </li>
+                                                            </li> #}
                                                         </ul>
                                             </div>
                                             <div  class=\"pr_desc\">

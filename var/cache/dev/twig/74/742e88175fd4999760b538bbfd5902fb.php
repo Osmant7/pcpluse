@@ -301,7 +301,7 @@ class __TwigTemplate_f0e087d20e2c7470c2a210472ad45158 extends Template
                                         </a>
                                     </td>
                                 </tr>
-                                {% endfor%}
+                                {% endfor %}
 
                             </tbody>
                         </table>

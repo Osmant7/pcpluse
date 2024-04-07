@@ -533,6 +533,8 @@
     </service>
     <service id="App\EventSubscriber\DatabaseActivitySubscriber" class="App\EventSubscriber\DatabaseActivitySubscriber" autowire="true" autoconfigure="true">
       <tag name="doctrine.event_subscriber"/>
+      <tag name="doctrine.event_listener" event="postRemove" priority="" connection=""/>
+      <tag name="doctrine.event_listener" event="postUpdate" priority="" connection=""/>
       <argument type="service" id="kernel"/>
     </service>
     <service id="App\Form\AddressType" class="App\Form\AddressType" autowire="true" autoconfigure="true">
@@ -5111,7 +5113,18 @@
     <service id="doctrine.dbal.default_connection.event_manager" class="Symfony\Bridge\Doctrine\ContainerAwareEventManager">
       <argument type="service" id=".service_locator.AWPTSVU"/>
       <argument type="collection">
-        <argument>App\EventSubscriber\DatabaseActivitySubscriber</argument>
+        <argument type="collection">
+          <argument type="collection">
+            <argument>postRemove</argument>
+          </argument>
+          <argument>App\EventSubscriber\DatabaseActivitySubscriber</argument>
+        </argument>
+        <argument type="collection">
+          <argument type="collection">
+            <argument>postUpdate</argument>
+          </argument>
+          <argument>App\EventSubscriber\DatabaseActivitySubscriber</argument>
+        </argument>
         <argument type="collection">
           <argument type="collection">
             <argument>postGenerateSchema</argument>
@@ -6008,6 +6021,14 @@
       <call method="addPath">
         <argument>C:\Users\osman\pcplus\vendor\symfony\debug-bundle/Resources/views</argument>
         <argument>!Debug</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\osman\pcplus/templates/bundles/TwigBundle</argument>
+        <argument>Twig</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\osman\pcplus/templates/bundles/TwigBundle</argument>
+        <argument>!Twig</argument>
       </call>
       <call method="addPath">
         <argument>C:\Users\osman\pcplus\vendor\symfony\web-profiler-bundle/Resources/views</argument>
@@ -7824,7 +7845,7 @@
     <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\Data" class="App\DataFixtures\Data" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\DataFixtures\Data" class="App\DataFixtures\Data" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\EventSubscriber\EventSubscriberInterface.0.App\EventSubscriber\DatabaseActivitySubscriber" class="App\EventSubscriber\DatabaseActivitySubscriber" autowire="true" abstract="true"/>
+    <service id=".instanceof.App\EventSubscriber\DatabaseActivitySubscriber.0.App\EventSubscriber\DatabaseActivitySubscriber" class="App\EventSubscriber\DatabaseActivitySubscriber" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\EventSubscriber\DatabaseActivitySubscriber" class="App\EventSubscriber\DatabaseActivitySubscriber" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\AddressType" class="App\Form\AddressType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\AddressType" class="App\Form\AddressType" autowire="true" autoconfigure="true" abstract="true"/>
